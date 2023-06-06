@@ -57,8 +57,8 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace/android-kernel
         export PATH=$GITHUB_WORKSPACE/kernel_workspace/clang/bin:$PATH
-        make -j$(nproc --all) CC=clang O=out ARCH=arm64 NM=llvm-nm OBJDUMP=llvm-objdump STRIP=llvm-strip LLVM_IAS=1 vendor/sm8250_defconfig
-        make -j$(nproc --all) CC="ccache clang" O=out ARCH=arm64 NM=llvm-nm OBJDUMP=llvm-objdump STRIP=llvm-strip LLVM_IAS=1
+        make -j$(nproc --all) CROSS_COMPILE=aarch64-linux-gnu- CC=clang O=out ARCH=arm64 NM=llvm-nm OBJDUMP=llvm-objdump STRIP=llvm-strip LLVM_IAS=1 vendor/sm8250_defconfig
+        make -j$(nproc --all) CROSS_COMPILE=aarch64-linux-gnu- CC="ccache clang" O=out ARCH=arm64 NM=llvm-nm OBJDUMP=llvm-objdump STRIP=llvm-strip LLVM_IAS=1
 
     - name: Upload Image
       uses: actions/upload-artifact@v3
