@@ -33,6 +33,8 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace
         git clone https://github.com/Andrea055/android_kernel_realme_sm8250 -b rui-dragon4.2 android-kernel --depth=1
+        cd android-kernel
+        git clone https://github.com/josenk/srandom --depth=1
 
     - name: Setup KernelSU
       run: |
