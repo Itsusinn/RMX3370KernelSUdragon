@@ -1,7 +1,5 @@
 name: Build Kernel
 on:
-  schedule:
-    - cron:  '0 4 * * *'
   workflow_dispatch:
 
 jobs:
@@ -32,7 +30,7 @@ jobs:
     - name: Download kernel source
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace
-        git clone https://github.com/his0ka/android_kernel_realme_neo3t.git -b caf-rui android-kernel --depth=1
+        git clone https://github.com/Andrea055/android_kernel_realme_sm8250 -b rui-dragon4.2 android-kernel --depth=1
         cd android-kernel
         git clone https://github.com/josenk/srandom --depth=1
 
